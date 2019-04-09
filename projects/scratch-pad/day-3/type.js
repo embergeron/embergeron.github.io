@@ -14,7 +14,12 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (Array.isArray(value) === true){
+      
+        return true;
+    } else {
+        return false;
+    }
     
     
     
@@ -31,6 +36,19 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
+    if (Array.isArray(value)){
+        return false;
+    } else if (value === null){
+        return false;
+    } else if (value instanceof Date){
+        return false;
+    } else if (typeof value === 'object'){
+        return true;
+    } else {
+        return false;
+    }
+        
+        
     
     
     
@@ -46,7 +64,15 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    if (value instanceof Date){
+        return false;
+    } else if (value === null){
+        return false;
+    } else if (typeof value === 'object'){
+        return true;
+    } else {
+        return false;
+    }
     
     
     
@@ -73,13 +99,21 @@ function isCollection(value) {
  *    typeOf([1,2,3]) -> "array"
  */ 
 function typeOf(value) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
-    
-    // YOUR CODE ABOVE HERE //
+  if (Array.isArray(value)){
+      return 'array';
+  } else if (value === null){
+      return 'null';
+  } else if (value instanceof Date){
+      return 'date';
+  } else {
+      return typeof value;
+  }
+
 }
+    
+
+    // YOUR CODE ABOVE HERE //
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&

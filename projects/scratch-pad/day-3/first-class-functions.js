@@ -13,9 +13,23 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    if (typeof base === 'number'){
+        return function testNum (givVal){
+            if (givVal > base){
+                return true;
+            } else {
+                return false;
+            } 
+        }
+    } else if (typeof base === 'string'){
+        return function testStr (givVal){
+            if (givVal > base){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -27,6 +41,23 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
+    if (typeof base === 'number'){
+        return function testNum (givVal){
+            if (givVal > base){
+                return false;
+            } else {
+                return true;
+            } 
+        }
+    } else if (typeof base === 'string'){
+        return function testStr (givVal){
+            if (givVal > base){
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
     
     
     
@@ -41,7 +72,15 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+   return function doesItStart (strTest){
+    //   startsWith.toLowerCase();
+    //   strTest.toLowerCase();
+        if (strTest[0].toLowerCase() === startsWith.toLowerCase()){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     
     
@@ -55,7 +94,13 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function (endTest){
+        if (endTest[endTest.length-1].toLowerCase() === endsWith.toLowerCase()){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     
     
@@ -71,10 +116,12 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    var modArr = [];
+    // console.log(strings, "strings");
+    for (var i = 0 ; i < strings.length; i++){
+         modArr.push(modify(strings[i]));
+    }
+    return modArr;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -89,8 +136,15 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+
+    for (var i = 0 ; i < strings.length ; i++){
+      if(test(strings[i]) !== true){
+          return false 
+      } 
+    } 
     
-    
+    return true; 
+
     
     
     // YOUR CODE ABOVE HERE //

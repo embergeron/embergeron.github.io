@@ -21,16 +21,14 @@
 
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
-    var rvrs = [];
+    var rvrs = "";
     
-    for (var i = input.length-1 ; i >= [0] ; i--) {
-      rvrs.push(i);
+    for (var i = input.length-1 ; i >= 0 ; i--) {
+      rvrs += input[i];
     };
+    console.log(rvrs);
     
-    var rString  =  rvrs.join('');
-    console.log(rString);
-    
-    return rString;
+    return rvrs;
     
     
     

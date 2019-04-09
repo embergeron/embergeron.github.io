@@ -190,25 +190,7 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-var result = "";
-var strArr = [stringOne , stringTwo];
-// strArr.push(stringOne , stringTwo);
-
- strArr.sort(function (a,b) {
-  if (a > b) {
-    result = 1;
-  } else if ( a < b) {
-    result = -1;
-  } else {
-     result = 0;
-  }
-})
-
-return result; 
-
-
-
-
+    return stringOne > stringTwo ? -1 : (stringOne < stringTwo) ? 1 : 0;
     // YOUR CODE ABOVE HERE //
 }
 
@@ -222,23 +204,7 @@ return result;
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-var result = "";
-var strArr = [stringOne , stringTwo];
-// strArr.push(stringOne , stringTwo);
-
- strArr.sort(function (a,b) {
-  if (a < b) {
-    result = 1;
-  } else if ( a > b) {
-    result = -1;
-  } else {
-     result = 0;
-  }
-})
-
-return result; 
-
-
+return  stringOne > stringTwo ? 1 : (stringOne < stringTwo) ? -1 : 0;
 
 
 

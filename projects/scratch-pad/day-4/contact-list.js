@@ -37,7 +37,11 @@
 
 // YOUR CODE GOES BELOW HERE //
 function makeContact(id, nameFirst, nameLast) {
-
+return {
+    id,
+    nameFirst,
+    nameLast
+}
 } 
 
 
@@ -45,14 +49,37 @@ function makeContactList() {
     /*
      * You need something here to hold contacts. See length api for a hint:
      */
-    var contacts;
+    // var lengthList = [];
+    var contacts = [];
     
     return {
         // we implemented the length api for you //
         length: function() {
             return contacts.length;
-        }
-    }
+        },
+        addContact: function(contact){
+            return contacts.push(contact);
+        },
+        findContact: function(fullName){
+            for (var i = 0 ; i < contacts.length ; i++){
+                if (fullName === contacts[i]["nameFirst"].concat(" ", contacts[i]["nameLast"])){
+                    return contacts[i];
+                } else return undefined;
+            }
+        },
+        removeContact: function(contact){
+            contacts.pop(contact);
+        },
+        printAllContactNames: function(){
+            var allList = [];
+            for (var i = 0 ; i < contacts.length ; i++){
+             allList.push( contacts[i]["nameFirst"].concat(" ", contacts[i]["nameLast"]));
+            }
+           return allList.join("\n");
+           
+    } 
+}
+    
 }
 
 
@@ -70,3 +97,4 @@ if((typeof process !== 'undefined') &&
     module.exports.makeContact = makeContact;
     module.exports.makeContactList = makeContactList;
 }
+
